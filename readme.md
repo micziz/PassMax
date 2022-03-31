@@ -4,8 +4,6 @@
   - [What is PassMax?](#what-is-passmax)
   - [Why should I use PassMax, and not something like bitdefender?](#why-should-i-use-passmax-and-not-something-like-bitdefender)
   - [How do i install PassMax?](#how-do-i-install-passmax)
-    - [MacOS/Linux](#macoslinux)
-    - [Windows](#windows)
   - [Contribuitng:](#contribuitng)
   - [License](#license)
 
@@ -19,22 +17,7 @@ PassMax is local! Meaning you do not have to worry about your passwords being st
 
 ## How do i install PassMax?
 
-### MacOS/Linux
-
-On MacOS/Linux you can install PassMax by running the following command:
-
-
-```bash
-
-```
-
-### Windows
-
-On windows, you can install PassMax by running the following command (not tested!!!!):
-
-
-
-**For More install instructions, check the wiki!**
+Currently, PassMax can only be installed from source. You can find install instructions in the wiki.
 
 ## Contribuitng:
 
