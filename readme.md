@@ -17,6 +17,7 @@ PassMax is local! Meaning you do not have to worry about your passwords being st
 
 ## How do i install PassMax?
 
+
 Currently, PassMax can only be installed from source. You can find install instructions in the wiki.
 
 ## Contribuitng:
