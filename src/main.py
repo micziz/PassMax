@@ -7,21 +7,22 @@ import time
 from password_generator import PasswordGenerator
 
 pwo = PasswordGenerator()
-# List passwords
+# List of passwords
 passwords = []
+# Read passwords from file
 ff = open("pass.txt", "rt")
+# Append passwords function
 passwords = ff.readlines()
 
 # Create a new password function
 def createPassword():
     # Check if the user wants to create a new password by themselves or by using a random password generator
-    print("Do you want to create a new password by yourself or use a random password generator?")
     userChoice = input("Enter 1 to create a new password by yourself or 2 to use a random password generator: ")
     if userChoice == "1":
         # Get password
         newPassword = input("Enter the new password: ")
         # Tell user password is being saved
-        print("Password created, saving...")
+        print("\nPassword created, saving...")
         time.sleep(2)
         # Save password
         passwords.append(newPassword)
@@ -31,7 +32,7 @@ def createPassword():
         # Generate password
         newPassword = pwo.generate()
         # Tell user password is being saved
-        print("Password created, saving...")
+        print("\nPassword created, saving...")
         time.sleep(2)
         # Save password
         passwords.append(newPassword)
@@ -46,11 +47,15 @@ def listPasswords():
     if passwords == []:
         print("There are no passwords")    
     else:
-        print("List all passwords")
         print("Here are your passwords")
         # Read passwords from file
+        # Add a number for every password is printed
+        passwordNumber = 1
+        passwordNumberString = str(passwordNumber)
         for password in passwords:
-            print(f"Password: {password}")
+            print(f"Password {passwordNumberString}: {password}")
+            passwordNumber += 1
+            passwordNumberString = str(passwordNumber)
 
 # Edit passwords function
 def editPasswords():
