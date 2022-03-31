@@ -3,6 +3,10 @@
 # Import standard modules
 import time
 
+# Import non standard modules
+from password_generator import PasswordGenerator
+
+pwo = PasswordGenerator()
 # List passwords
 passwords = []
 ff = open("pass.txt", "rt")
@@ -10,16 +14,32 @@ passwords = ff.readlines()
 
 # Create a new password function
 def createPassword():
-    print("Create a new password")
-    # Get password
-    newPassword = input("Enter the new password: ")
-    # Tell user password is being saved
-    print("Password created, saving...")
-    time.sleep(2)
-    # Save password
-    passwords.append(newPassword)
-    f = open("pass.txt", "at")
-    f.write(newPassword + "\n")
+    # Check if the user wants to create a new password by themselves or by using a random password generator
+    print("Do you want to create a new password by yourself or use a random password generator?")
+    userChoice = input("Enter 1 to create a new password by yourself or 2 to use a random password generator: ")
+    if userChoice == "1":
+        # Get password
+        newPassword = input("Enter the new password: ")
+        # Tell user password is being saved
+        print("Password created, saving...")
+        time.sleep(2)
+        # Save password
+        passwords.append(newPassword)
+        f = open("pass.txt", "at")
+        f.write(newPassword + "\n")
+    elif userChoice == "2":
+        # Generate password
+        newPassword = pwo.generate()
+        # Tell user password is being saved
+        print("Password created, saving...")
+        time.sleep(2)
+        # Save password
+        passwords.append(newPassword)
+        f.open("pass.txt", "at")
+        f.write(newPassword + "\n")
+        
+        
+        
 
 # List passwords function
 def listPasswords():
