@@ -35,7 +35,7 @@ def createPassword():
         time.sleep(2)
         # Save password
         passwords.append(newPassword)
-        f.open("pass.txt", "at")
+        f = open("pass.txt", "at")
         f.write(newPassword + "\n")
         
         
@@ -43,11 +43,14 @@ def createPassword():
 
 # List passwords function
 def listPasswords():
-    print("List all passwords")
-    print("Here are your passwords")
-    # Read passwords from file
-    for password in passwords:
-        print(f"Password: {password}")
+    if passwords == []:
+        print("There are no passwords")    
+    else:
+        print("List all passwords")
+        print("Here are your passwords")
+        # Read passwords from file
+        for password in passwords:
+            print(f"Password: {password}")
 
 # Edit passwords function
 def editPasswords():
@@ -98,6 +101,7 @@ def deletePasswords():
             for line in data:
                 if line.strip("\n") != whatPassToDelete: 
                     f.write(line)
+        passwords.remove(whatPassToDelete)
     # If password does not exist:
     else:
         # Tell user password does not exist
@@ -115,6 +119,7 @@ def deleteAllPasswords():
         print("All passwords deleted, saving...")
         with open("pass.txt", "w") as f:
             f.write("")
+        passwords.clear()
     # If no:
     else:
         # Say not deleting
