@@ -38,7 +38,10 @@ def createPassword():
         passwords.append(newPassword)
         f = open("pass.txt", "at")
         f.write(newPassword + "\n")
-        
+    # If user enters something else:    
+    else:
+        # Tell user to enter 1 or 2 the next time
+        print("Invalid command, returning to menu")
         
         
 
