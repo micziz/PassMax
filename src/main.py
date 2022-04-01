@@ -9,7 +9,7 @@ from password_generator import PasswordGenerator
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
-filename = "src/pass.txt"
+filename = "pass.txt"
 # List of passwords
 passwords = []
 # Try to open file
@@ -26,7 +26,7 @@ except FileNotFoundError:
     print("No pass.txt found")
     print("Creating pass.txt")
     # Create file
-    ff = open(filename, "xt")
+    ff = open(filename, "wt")
     ff.close()
     ff = open(filename, "rt")
     # Add passwords to list
@@ -35,7 +35,7 @@ except FileNotFoundError:
 # Create a new password function
 def createPassword():
     # Check if the user wants to create a new password by themselves or by using a random password generator
-    userChoice = input("Enter 1 to create a new password by yourself. \n2 to use a random password generator \n3-Custom password generation.")
+    userChoice = input("1-Create a new password by yourself. \n2-Use a random password generator \n3-Custom password generation.")
     if userChoice == "1":
         # Get password
         newPassword = input("Enter the new password: ")
