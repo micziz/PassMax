@@ -37,7 +37,8 @@ except FileNotFoundError:
 # Create a new password function
 def createPassword():
     # Check if the user wants to create a new password by themselves or by using a random password generator
-    userChoice = input("1-Create a new password by yourself. \n2-Use a random password generator \n3-Custom password generation.")
+    print("1-Create a new password by yourself. \n2-Use a random password generator \n3-Custom password generation")
+    userChoice = input("Enter your choice: ")
     if userChoice == "1":
         # Get password
         newPassword = input("Enter the new password: ")
