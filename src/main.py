@@ -5,6 +5,9 @@ import time, os
 
 # Import non standard modules
 from password_generator import PasswordGenerator
+from pyfiglet import Figlet
+f = Figlet(font='slant')
+print(f.renderText('PassMax'))
 
 version = "0.1.0"
 
