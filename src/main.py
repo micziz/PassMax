@@ -17,7 +17,7 @@ passwords = ff.readlines()
 # Create a new password function
 def createPassword():
     # Check if the user wants to create a new password by themselves or by using a random password generator
-    userChoice = input("Enter 1 to create a new password by yourself or 2 to use a random password generator: ")
+    userChoice = input("Enter 1 to create a new password by yourself. \n2 to use a random password generator \n3-Custom password generation.")
     if userChoice == "1":
         # Get password
         newPassword = input("Enter the new password: ")
@@ -32,6 +32,17 @@ def createPassword():
         # Generate password
         newPassword = pwo.generate()
         # Tell user password is being saved
+        print("\nPassword created, saving...")
+        time.sleep(2)
+        # Save password
+        passwords.append(newPassword)
+        f = open("pass.txt", "at")
+        f.write(newPassword + "\n")
+    elif userChoice == "3":
+        lengthOfPassword = int(input("Enter the length of the password: "))
+        pwo.minlen = lengthOfPassword
+        pwo.maxlen = lengthOfPassword
+        newPassword = pwo.generate()
         print("\nPassword created, saving...")
         time.sleep(2)
         # Save password
