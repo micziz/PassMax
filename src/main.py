@@ -1,16 +1,16 @@
-# Make a password manager
-
 # Import standard modules
 import time, os
 
 # Import non standard modules
 from password_generator import PasswordGenerator
 from pyfiglet import Figlet
+
+# Decleare figelt
 f = Figlet(font='slant')
+# Render thanks
 print(f.renderText('PassMax'))
-
+# Decleare version
 version = "0.1.0"
-
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
