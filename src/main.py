@@ -1,7 +1,7 @@
 # Make a password manager
 
 # Import standard modules
-import time
+import time, os
 
 # Import non standard modules
 from password_generator import PasswordGenerator
