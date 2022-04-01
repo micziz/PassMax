@@ -6,6 +6,8 @@ import time, os
 # Import non standard modules
 from password_generator import PasswordGenerator
 
+version = "0.1.0"
+
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
@@ -166,15 +168,26 @@ def deleteAllPasswords():
         # Say not deleting
         print("Not deleting, returning to normal program")
 
+# Info function
+def info():
+    # Tell version
+    print(f"PassMax version {version}")
+    # Author
+    print("Author: micziz")
+    # License
+    print("License: GNU GPLv3")
+    # General info
+    print("PassMax is a password manager that allows you to store your passwords in a secure way and local way!")
+
 
 # While loop to keep program running
 while True:
     # Welcome user
-    print("Welcome to tpm")
+    print("Welcome to PassMax!")
     # Ask user what they want to do
     print("What do you want to do today?")
     # List options
-    whatToDo = input("[C]reate a new password, [L]ist all passwords, [E]dit a password, [D]elete a password, [DA]Deleate all passwords [Q]uit: ")
+    whatToDo = input("[C]reate a new password, [L]ist all passwords, [E]dit a password, [D]elete a password, [DA]Deleate all passwords, [I]nfo, [Q]uit: ")
     # If user wants to create a new password
     if whatToDo == "C":
         # Call createPassword function
@@ -193,6 +206,8 @@ while True:
     elif whatToDo == "DA":
         # Deleate all passwords
         deleteAllPasswords()
+    elif whatToDo == "I":
+        info()
     elif whatToDo == "Q":
         print("Quitting, goodbye!")
         break
