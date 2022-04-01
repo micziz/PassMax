@@ -1,5 +1,5 @@
 # Import standard modules
-import time, os
+import time, os, requests, json
 
 # Import non standard modules
 from password_generator import PasswordGenerator
@@ -10,7 +10,7 @@ f = Figlet(font='slant')
 # Render thanks
 print(f.renderText('PassMax'))
 # Decleare version
-version = "0.1.0"
+version = "0.1.1"
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
@@ -181,8 +181,11 @@ def info():
     # License
     print("License: GNU GPLv3")
     # General info
-    print("PassMax is a password manager that allows you to store your passwords in a secure way and local way!")
-
+    print("""
+PassMax is a password manager that allows you to store your passwords in a secure way and local way!
+PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.  
+          """)
+    
 
 # While loop to keep program running
 while True:
@@ -191,7 +194,9 @@ while True:
     # Ask user what they want to do
     print("What do you want to do today?")
     # List options
-    whatToDo = input("[C]reate a new password, [L]ist all passwords, [E]dit a password, [D]elete a password, [DA]Deleate all passwords, [I]nfo, [Q]uit: ")
+    print("Passwords: [C]reate a new password, [L]ist all passwords, [E]dit a password, [D]elete a password, [DA]Deleate all passwords \nOther: [I]nfo, [U]pdate [Q]uit: ")
+    # Get user input
+    whatToDo = input("Enter your choice: ")
     # If user wants to create a new password
     if whatToDo == "C":
         # Call createPassword function
@@ -212,6 +217,8 @@ while True:
         deleteAllPasswords()
     elif whatToDo == "I":
         info()
+    elif whatToDo == "U":
+        update()
     elif whatToDo == "Q":
         print("Quitting, goodbye!")
         break
