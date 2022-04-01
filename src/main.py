@@ -6,13 +6,31 @@ import time, os
 # Import non standard modules
 from password_generator import PasswordGenerator
 
+# Start the password generator
 pwo = PasswordGenerator()
+# Filename to store passwords
+filename = "src/pass.txt"
 # List of passwords
 passwords = []
-# Read passwords from file
-ff = open("pass.txt", "rt")
-# Append passwords function
-passwords = ff.readlines()
+# Try to open file
+try:
+    # Read passwords from file
+    ff = open(filename, "rt")
+    # Add passwords to list
+    passwords = ff.readlines()
+    # Close file
+    ff.close()
+# If file does not exist:
+except FileNotFoundError:
+    # Print error
+    print("No pass.txt found")
+    print("Creating pass.txt")
+    # Create file
+    ff = open(filename, "xt")
+    ff.close()
+    ff = open(filename, "rt")
+    # Add passwords to list
+    passwords = ff.readlines()
 
 # Create a new password function
 def createPassword():
@@ -26,7 +44,7 @@ def createPassword():
         time.sleep(2)
         # Save password
         passwords.append(newPassword)
-        f = open("pass.txt", "at")
+        f = open(filename, "at")
         f.write(newPassword + "\n")
     elif userChoice == "2":
         # Generate password
@@ -36,7 +54,7 @@ def createPassword():
         time.sleep(2)
         # Save password
         passwords.append(newPassword)
-        f = open("pass.txt", "at")
+        f = open(filename, "at")
         f.write(newPassword + "\n")
     elif userChoice == "3":
         lengthOfPassword = int(input("Enter the length of the password: "))
@@ -47,7 +65,7 @@ def createPassword():
         time.sleep(2)
         # Save password
         passwords.append(newPassword)
-        f = open("pass.txt", "at")
+        f = open(filename, "at")
         f.write(newPassword + "\n")
     # If user enters something else:    
     else:
@@ -102,6 +120,8 @@ def editPasswords():
     else:
         # Tell user password does not exist
         print("Password not found")
+    if whatPassToEdit == "L":
+        listPasswords()
 
 # Delete passwords function
 def deletePasswords():
