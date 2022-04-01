@@ -116,12 +116,12 @@ def editPasswords():
         # Save new password
         with open("pass.txt", "at") as f:
             f.write(newPassword + "\n")
+    elif whatPassToEdit == "L":
+        listPasswords()
     # If no:
     else:
         # Tell user password does not exist
         print("Password not found")
-    if whatPassToEdit == "L":
-        listPasswords()
 
 # Delete passwords function
 def deletePasswords():
@@ -141,6 +141,8 @@ def deletePasswords():
                 if line.strip("\n") != whatPassToDelete: 
                     f.write(line)
         passwords.remove(whatPassToDelete)
+    elif whatPassToDelete == "L":
+        listPasswords()
     # If password does not exist:
     else:
         # Tell user password does not exist
