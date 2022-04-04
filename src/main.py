@@ -195,13 +195,12 @@ def importPassword():
     checkIfStepsFollowed = input("Enter Y if you followed the steps: ")
     if checkIfStepsFollowed == "Y":
         print("Importing passwords...")
-        fI = open("import.txt", "rt")
+        fI = open("src/import.txt", "rt")
         importedPasswords = fI.readlines()
         passwords.append(importedPasswords)
         for importedPassword in importedPasswords:
-            with open("pass.txt", "at") as f:
+            with open(filename, "at") as f:
                 f.write(importedPassword)
-                f.write("\n")
 
 
 # While loop to keep program running
@@ -211,7 +210,7 @@ while True:
     # Ask user what they want to do
     print("What do you want to do today?")
     # List options
-    print("Passwords: [C]reate a new password, [I]mport other files [L]ist all passwords, [E]dit a password, [D]elete a password, [DA]Deleate all passwords \nOther: [I]nfo, [U]pdate [Q]uit: ")
+    print("Create Passwords: [C]reate a new password, [I]mport other files\nManage Password[L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [Q]uit: ")
     # Get user input
     whatToDo = input("Enter your choice: ")
     # If user wants to create a new password
@@ -220,7 +219,8 @@ while True:
         createPassword()
     # If user wants to import other files
     elif whatToDo == "I":
-        print("Not implemented yet")
+        # Call importPassword function
+        importPassword()
     # If user wants to list all passwords
     elif whatToDo == "L":
         # Call listPasswords function
@@ -235,10 +235,8 @@ while True:
     elif whatToDo == "DA":
         # Deleate all passwords
         deleteAllPasswords()
-    elif whatToDo == "I":
+    elif whatToDo == "IN":
         info()
-    elif whatToDo == "U":
-        update()
     elif whatToDo == "Q":
         print("Quitting, goodbye!")
         break
