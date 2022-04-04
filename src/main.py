@@ -1,5 +1,5 @@
 # Import standard modules
-import time, os, requests, json
+import time
 
 # Import non standard modules
 from password_generator import PasswordGenerator
