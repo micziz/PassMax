@@ -186,6 +186,23 @@ PassMax is a password manager that allows you to store your passwords in a secur
 PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.  
           """)
     
+def importPassword():
+    print("There are some steps to follow:")
+    print("1-Take all passwords you want to import and save them in a file")
+    print("Note: All passwords must be on diffrent lines")
+    print("2-Rename the file to import.txt")
+    print("3-Open PassMax and select Import")
+    checkIfStepsFollowed = input("Enter Y if you followed the steps: ")
+    if checkIfStepsFollowed == "Y":
+        print("Importing passwords...")
+        fI = open("import.txt", "rt")
+        importedPasswords = fI.readlines()
+        passwords.append(importedPasswords)
+        for importedPassword in importedPasswords:
+            with open("pass.txt", "at") as f:
+                f.write(importedPassword)
+                f.write("\n")
+
 
 # While loop to keep program running
 while True:
@@ -194,13 +211,16 @@ while True:
     # Ask user what they want to do
     print("What do you want to do today?")
     # List options
-    print("Passwords: [C]reate a new password, [L]ist all passwords, [E]dit a password, [D]elete a password, [DA]Deleate all passwords \nOther: [I]nfo, [U]pdate [Q]uit: ")
+    print("Passwords: [C]reate a new password, [I]mport other files [L]ist all passwords, [E]dit a password, [D]elete a password, [DA]Deleate all passwords \nOther: [I]nfo, [U]pdate [Q]uit: ")
     # Get user input
     whatToDo = input("Enter your choice: ")
     # If user wants to create a new password
     if whatToDo == "C":
         # Call createPassword function
         createPassword()
+    # If user wants to import other files
+    elif whatToDo == "I":
+        print("Not implemented yet")
     # If user wants to list all passwords
     elif whatToDo == "L":
         # Call listPasswords function
