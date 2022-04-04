@@ -185,19 +185,28 @@ def info():
 PassMax is a password manager that allows you to store your passwords in a secure way and local way!
 PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.  
           """)
-    
+
+# Import passwords from file function 
 def importPassword():
+    # Steps to import passwords
     print("There are some steps to follow:")
     print("1-Take all passwords you want to import and save them in a file")
     print("Note: All passwords must be on diffrent lines")
     print("2-Rename the file to import.txt")
     print("3-Open PassMax and select Import")
+    # Ask for user to confirm
     checkIfStepsFollowed = input("Enter Y if you followed the steps: ")
+    # If yes:
     if checkIfStepsFollowed == "Y":
+        # Print that you are importing
         print("Importing passwords...")
+        # Open file
         fI = open("src/import.txt", "rt")
+        # Read file
         importedPasswords = fI.readlines()
+        # Append to list
         passwords.append(importedPasswords)
+        # Add to file
         for importedPassword in importedPasswords:
             with open(filename, "at") as f:
                 f.write(importedPassword)
