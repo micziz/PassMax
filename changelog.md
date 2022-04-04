@@ -1,5 +1,11 @@
 # PassMax Changelog
 
+0.1.1: 
+
+- Add importing
+- Add random password creation
+- Fixed some things up.
+
 0.1.0: Parrot Patrol
 
 - Initial release
