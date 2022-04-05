@@ -257,6 +257,20 @@ def exportAllPass():
         fE.write(passwordFinished + "\n")
     print("Exported all passwords")
 
+def commands():
+    print("Welcome to the commands section! Here you can find all commands you can use in PassMax")
+    print("[C]: Create a new password. You can create a password by yourself, or you can use the auto-generator (With Paramaters)")
+    print("[L]: List all passwords. You can list all passwords you have saved")
+    print("[E]: Edit a password. You can edit a password you have saved")
+    print("[D]: Delete a password. You can delete a password you have saved")
+    print("[DA]: Delete all passwords. You can delete all passwords you have saved")
+    print("[I]: Import passwords. You can import passwords from a file")
+    print("[EX]: Export a password. You can export a password to a file")
+    print("[EXA]: Export all passwords. You can export all passwords to a file")
+    print("[IN]: Info. You can get info about PassMax")
+    print("[CM]: Commands. You can get info about all commands you can use in PassMax")
+    print("[Q]: Quit PassMax")
+
 
 # While loop to keep program running
 while True:
@@ -265,7 +279,7 @@ while True:
     # Ask user what they want to do
     print("What do you want to do today?")
     # List options
-    print("Create Passwords: [C]reate a new password\nImport/Export [I]mport other files [EX]prot a password [EXA]Export All Passwords\nManage Password[L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [Q]uit: ")
+    print("Create Passwords: [C]reate a new password\nImport/Export [I]mport other files [EX]prot a password [EXA]Export All Passwords\nManage Password: [L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [Q]uit: ")
     # Get user input
     whatToDo = input("Enter your choice: ")
     # If user wants to create a new password
@@ -299,7 +313,7 @@ while True:
     elif whatToDo == "IN":
         info()
     elif whatToDo == "CM":
-        print("Not implemented yet")
+        commands()
     elif whatToDo == "Q":
         print("Quitting, goodbye!")
         break
