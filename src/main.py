@@ -224,7 +224,21 @@ def importPassword():
             with open(filename, "at") as f:
                 f.write(importedPassword)
 
-
+# Export passwords to file function
+def exportPassword():
+    whatPassToExport = input("Enter the password you want to export: ")
+    if whatPassToExport in passwords:
+        # Export password
+        print("Exporting password...")
+        # Open file
+        whatPassToExport_encoded = whatPassToExport.encode('ascii')
+        whatPassToExport_bytes = base64.b64encode(whatPassToExport_encoded)
+        WPTEpassword_finished = whatPassToExport_bytes.decode('ascii') 
+        fE = open("src/export.txt", "wt")
+        # Write to file
+        fE.write(WPTEpassword_finished)
+        # Close file
+        fE.close()
 
 
 # While loop to keep program running
