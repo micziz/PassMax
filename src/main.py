@@ -21,15 +21,18 @@ passwords = []
 try:
     # Read passwords from file
     ff = open(filename, "rt")
-    # Add passwords to list
+    # Decode passwords with base64
     passwords_encoded = ff.readlines()
     passwords_encodedStr = str(passwords_encoded)
     passwords_bytes = passwords_encodedStr.encode('ascii')
     final_bytes = base64.b64decode(passwords_bytes)
     final = final_bytes.decode('ascii')
+    # Add passwords to list
     passwords.append(final)
     # Close file
     ff.close()
+    # Sleep for 2 seconds
+    time.sleep(2)
 # If file does not exist:
 except FileNotFoundError:
     # Print error
@@ -41,6 +44,8 @@ except FileNotFoundError:
     ff = open(filename, "rt")
     # Add passwords to list
     passwords = ff.readlines()
+    # Sleep for 2 seconds
+    time.sleep(2)
 
 # Create a new password function
 def createPassword():
