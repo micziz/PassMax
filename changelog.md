@@ -1,5 +1,10 @@
 # PassMax Changelog
 
+0.1.2:
+
+- Add encryption
+- Removed unnecessary dependencies
+
 0.1.1: 
 
 - Add importing
