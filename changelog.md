@@ -1,6 +1,6 @@
 # PassMax Changelog
 
-0.2.0:
+0.2.0 Octopus officer:
 
 - FULL ENCRYPTION
 - Ui fixes, including clear command
