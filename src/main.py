@@ -96,6 +96,13 @@ def listPasswords():
     else:
         print("Here are your passwords")
         # Read passwords from file
+        fL = open(filename, "rt")
+        passwordRead = fL.readlines()
+        passwordReadStr = str(passwordRead)
+        base64_bytes = passwordReadStr.encode('ascii')
+        message_bytes = base64.b64decode(base64_bytes)
+        passwordsImported = message_bytes.decode('ascii')
+        passwords.append(passwordsImported)
         # Add a number for every password is printed
         passwordNumber = 1
         passwordNumberString = str(passwordNumber)
@@ -218,7 +225,8 @@ def importPassword():
         # Read file
         importedPasswords = fI.readlines()
         # Append to list
-        passwords.append(importedPasswords)
+        for passwo in importedPasswords:
+            passwords.append(passwo)
         # Add to file
         for importedPassword in importedPasswords:
             with open(filename, "at") as f:
@@ -261,7 +269,7 @@ while True:
         importPassword()
     # if user wants to export a password
     elif whatToDo == "EX":
-        print("Not implemented yet")
+        exportPassword()
     # If user wants to list all passwords
     elif whatToDo == "L":
         # Call listPasswords function
