@@ -120,6 +120,10 @@ def editPasswords():
         passwords[passwords.index(whatPassToEdit)] = newPassword
         # Tell user password is being saved
         print("Password changed, saving...")
+        # Encode password
+        newPassword_encoded = newPassword.encode('ascii')
+        newPassword_bytes = base64.b64encode(newPassword_encoded)
+        newPassword_finished = newPassword_bytes.decode('ascii')
         # Delete old password
         with open("pass.txt", "r") as f:
             # read data line by line 
@@ -130,7 +134,7 @@ def editPasswords():
                     f.write(line)
         # Save new password
         with open("pass.txt", "at") as f:
-            f.write(newPassword + "\n")
+            f.write(newPassword_finished + "\n")
     elif whatPassToEdit == "L":
         listPasswords()
     # If no:
