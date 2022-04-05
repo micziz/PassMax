@@ -290,17 +290,28 @@ def exportPassword():
         # Close file
         fE.close()
 
+# Export all passwords to file function
 def exportAllPass():
+    # Open file
     fE = open("src/export.txt", "wt")
+    # For each password in list
     for password in passwords:
+        # Encode password
         passwordEncode = password.encode('ascii')
         password_bytes = base64.b64encode(passwordEncode)
         passwordFinished = password_bytes.decode('ascii')
+        # Write to file
         fE.write(passwordFinished + "\n")
+    # Print that you are exporting
     print("Exported all passwords")
+    time.sleep(2)
 
+
+# Commands function
 def commands():
+    # Clear screen
     os.system(clear_command)
+    # Print commands
     print("Welcome to the commands section! Here you can find all commands you can use in PassMax")
     print("[C]: Create a new password. You can create a password by yourself, or you can use the auto-generator (With Paramaters)")
     print("[L]: List all passwords. You can list all passwords you have saved")
@@ -313,10 +324,15 @@ def commands():
     print("[IN]: Info. You can get info about PassMax")
     print("[CM]: Commands. You can get info about all commands you can use in PassMax")
     print("[Q]: Quit PassMax")
+    # Check if user wants to quit
     returnToMenu = input("Enter Q to return to the main menu: ")
+    # If yes:
     if returnToMenu == "Q":
+        # Return to menu
         print("Returning to main menu...")
+    # If no:
     else:
+        # Recall commands function
         commands()
         
 
