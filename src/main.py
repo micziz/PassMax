@@ -314,7 +314,7 @@ def commands():
 
 # While loop to keep program running
 while True:
-    os.system()
+    os.system(clear_command)
     # Welcome user
     print("Welcome to PassMax!")
     # Ask user what they want to do
