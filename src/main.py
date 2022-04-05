@@ -248,6 +248,14 @@ def exportPassword():
         # Close file
         fE.close()
 
+def exportAllPass():
+    fE = open("src/export.txt", "wt")
+    for password in passwords:
+        passwordEncode = password.encode('ascii')
+        password_bytes = base64.b64encode(passwordEncode)
+        passwordFinished = password_bytes.decode('ascii')
+        fE.write(passwordFinished + "\n")
+
 
 # While loop to keep program running
 while True:
