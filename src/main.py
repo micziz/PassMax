@@ -10,7 +10,7 @@ f = Figlet(font='slant')
 # Render thanks
 print(f.renderText('PassMax'))
 # Declare version
-version = "0.1.0"
+version = "0.2.0"
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords

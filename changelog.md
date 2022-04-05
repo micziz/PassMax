@@ -1,9 +1,12 @@
 # PassMax Changelog
 
-0.1.4:
+0.2.0:
 
 - FULL ENCRYPTION
 - Ui fixes, including clear command
+- General fixes to my grammar!
+- More time!
+- General fixes to command function
 
 0.1.3:
 
