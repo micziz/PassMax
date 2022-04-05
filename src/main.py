@@ -152,6 +152,7 @@ def listPasswords():
             print(f"Password {passwordNumberString}: {password}")
             passwordNumber += 1
             passwordNumberString = str(passwordNumber)
+    time.sleep(2)
 
 # Edit passwords function
 def editPasswords():
@@ -190,6 +191,7 @@ def editPasswords():
     else:
         # Tell user password does not exist
         print("Password not found")
+    time.sleep(2)
 
 # Delete passwords function
 def deletePasswords():
@@ -215,6 +217,7 @@ def deletePasswords():
     else:
         # Tell user password does not exist
         print("Password not found")
+    time.sleep(2)
         
 # Delete all passwords function
 def deleteAllPasswords():
@@ -233,9 +236,12 @@ def deleteAllPasswords():
     else:
         # Say not deleting
         print("Not deleting, returning to normal program")
+    time.sleep(2)
 
 # Info function
 def info():
+    # Clear screen
+    os.system(clear_command)
     # Tell version
     print(f"PassMax version {version}\n")
     # Author
@@ -247,7 +253,7 @@ def info():
 PassMax is a password manager that allows you to store your passwords in a secure way and local way!
 PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.  
           """)
-
+    time.sleep(3)
 # Import passwords from file function 
 def importPassword():
     # Steps to import passwords
@@ -273,6 +279,7 @@ def importPassword():
         for importedPassword in importedPasswords:
             with open(filename, "at") as f:
                 f.write(importedPassword)
+        time.sleep(2)
 
 # Export passwords to file function
 def exportPassword():
