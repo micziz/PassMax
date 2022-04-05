@@ -50,14 +50,18 @@ except FileNotFoundError:
 # Create a new password function
 def createPassword():
     # Check if the user wants to create a new password by themselves or by using a random password generator
-    print("1-Create a new password by yourself. \n2-Use a random password generator \n3-Custom password generation")
+    print("1-Create a new password by yourself. \n2-Use a random password generator \n3-Custom random password generation")
+    # Get user choice
     userChoice = input("Enter your choice: ")
+    # If user wants to create a new password by themselves:
     if userChoice == "1":
         # Get password
         newPassword = input("Enter the new password: ")
         # Tell user password is being saved
         print("\nPassword created, saving...")
+        # Sleep for 2 seconds
         time.sleep(2)
+        # Encode password
         password_encoded = newPassword.encode('ascii')
         password_bytes = base64.b64encode(password_encoded)
         password_finished = password_bytes.decode('ascii')
@@ -72,10 +76,14 @@ def createPassword():
         # Tell user password is being saved
         print("\nPassword created, saving...")
         time.sleep(2)
+        password_encoded = newPassword.encode('ascii')
+        password_bytes = base64.b64encode(password_encoded)
+        password_finished = password_bytes.decode('ascii')
         # Save password
         passwords.append(newPassword)
         f = open(filename, "at")
-        f.write(newPassword + "\n")
+        f.write(password_finished)
+        f.write("\n")
     elif userChoice == "3":
         lengthOfPassword = int(input("Enter the length of the password: "))
         pwo.minlen = lengthOfPassword
