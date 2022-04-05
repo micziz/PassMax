@@ -1,5 +1,5 @@
 # Import standard modules
-import time
+import time, base64
 
 # Import non standard modules
 from password_generator import PasswordGenerator
@@ -22,7 +22,12 @@ try:
     # Read passwords from file
     ff = open(filename, "rt")
     # Add passwords to list
-    passwords = ff.readlines()
+    passwords_encoded = ff.readlines()
+    passwords_encodedStr = str(passwords_encoded)
+    passwords_bytes = passwords_encodedStr.encode('ascii')
+    final_bytes = base64.b64decode(passwords_bytes)
+    final = final_bytes.decode('ascii')
+    passwords.append(final)
     # Close file
     ff.close()
 # If file does not exist:
@@ -48,10 +53,14 @@ def createPassword():
         # Tell user password is being saved
         print("\nPassword created, saving...")
         time.sleep(2)
+        password_encoded = newPassword.encode('ascii')
+        password_bytes = base64.b64encode(password_encoded)
+        password_finished = password_bytes.decode('ascii')
         # Save password
-        passwords.append(newPassword)
+        passwords.append(password_finished)
         f = open(filename, "at")
-        f.write(newPassword + "\n")
+        f.write(password_finished)
+        f.write("\n")
     elif userChoice == "2":
         # Generate password
         newPassword = pwo.generate()
@@ -212,6 +221,8 @@ def importPassword():
                 f.write(importedPassword)
 
 
+
+
 # While loop to keep program running
 while True:
     # Welcome user
@@ -219,7 +230,7 @@ while True:
     # Ask user what they want to do
     print("What do you want to do today?")
     # List options
-    print("Create Passwords: [C]reate a new password, [I]mport other files\nManage Password[L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [Q]uit: ")
+    print("Create Passwords: [C]reate a new password\nImport/Export [I]mport other files [EX]prot a password\nManage Password[L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [Q]uit: ")
     # Get user input
     whatToDo = input("Enter your choice: ")
     # If user wants to create a new password
@@ -230,6 +241,9 @@ while True:
     elif whatToDo == "I":
         # Call importPassword function
         importPassword()
+    # if user wants to export a password
+    elif whatToDo == "EX":
+        print("Not implemented yet")
     # If user wants to list all passwords
     elif whatToDo == "L":
         # Call listPasswords function
@@ -246,6 +260,8 @@ while True:
         deleteAllPasswords()
     elif whatToDo == "IN":
         info()
+    elif whatToDo == "CM":
+        print("Not implemented yet")
     elif whatToDo == "Q":
         print("Quitting, goodbye!")
         break
