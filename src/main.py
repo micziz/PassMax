@@ -5,12 +5,12 @@ import time, base64
 from password_generator import PasswordGenerator
 from pyfiglet import Figlet
 
-# Decleare figelt
+# Declare figelt
 f = Figlet(font='slant')
 # Render thanks
 print(f.renderText('PassMax'))
-# Decleare version
-version = "0.1.1"
+# Declare version
+version = "0.1.3"
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
