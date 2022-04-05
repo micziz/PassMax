@@ -10,7 +10,7 @@ f = Figlet(font='slant')
 # Render thanks
 print(f.renderText('PassMax'))
 # Declare version
-version = "0.1.4"
+version = "0.1.0"
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
@@ -18,6 +18,8 @@ filename = "pass.txt"
 # List of passwords
 passwords = []
 
+# Check what platform the user is using
+# And declere the correct clear command
 if sys.platform == "linux":
     clear_command = "clear"
 elif sys.platform == "linux2":
@@ -214,7 +216,7 @@ def deletePasswords():
         # Tell user password does not exist
         print("Password not found")
         
-# Dlete all passwords function
+# Delete all passwords function
 def deleteAllPasswords():
     # Confirm deletion
     print("Are you sure you want to delete all passwords?")

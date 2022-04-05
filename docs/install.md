@@ -102,7 +102,7 @@ Latest: Click code, and download the zip.
 
 ### Download python
 
-**Via Inastaller**
+**Via Installer**
 
 Go to https://www.python.org/downloads
 

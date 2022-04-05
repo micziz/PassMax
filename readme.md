@@ -4,7 +4,7 @@
   - [What is PassMax?](#what-is-passmax)
   - [Why should I use PassMax, and not something like 1Password?](#why-should-i-use-passmax-and-not-something-like-1password)
   - [How do i install PassMax?](#how-do-i-install-passmax)
-  - [Contribuitng:](#contribuitng)
+  - [Contributing:](#contributing)
   - [License](#license)
 
 ## What is PassMax?
@@ -19,7 +19,7 @@ PassMax is local! Meaning you do not have to worry about your passwords being st
 
 Currently, PassMax can only be installed from source. You can find install instructions in the wiki.
 
-## Contribuitng:
+## Contributing:
 
 Want to contribute to PassMax?
 

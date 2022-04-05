@@ -1,5 +1,10 @@
 # PassMax Changelog
 
+0.1.4:
+
+- FULL ENCRYPTION
+- Ui fixes, including clear command
+
 0.1.3:
 
 - Add export password
