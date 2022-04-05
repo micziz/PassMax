@@ -298,6 +298,7 @@ def exportAllPass():
     print("Exported all passwords")
 
 def commands():
+    os.system(clear_command)
     print("Welcome to the commands section! Here you can find all commands you can use in PassMax")
     print("[C]: Create a new password. You can create a password by yourself, or you can use the auto-generator (With Paramaters)")
     print("[L]: List all passwords. You can list all passwords you have saved")
@@ -310,7 +311,12 @@ def commands():
     print("[IN]: Info. You can get info about PassMax")
     print("[CM]: Commands. You can get info about all commands you can use in PassMax")
     print("[Q]: Quit PassMax")
-
+    returnToMenu = input("Enter Q to return to the main menu: ")
+    if returnToMenu == "Q":
+        print("Returning to main menu...")
+    else:
+        commands()
+        
 
 # While loop to keep program running
 while True:
