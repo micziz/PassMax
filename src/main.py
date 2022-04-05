@@ -70,10 +70,30 @@ def createPassword():
         f = open(filename, "at")
         f.write(password_finished)
         f.write("\n")
+    # If user wants to use a random password generator:
     elif userChoice == "2":
         # Generate password
         newPassword = pwo.generate()
         # Tell user password is being saved
+        print("\nPassword created, saving...")
+        # Sleep for 2 seconds
+        time.sleep(2)
+        # Encode password
+        password_encoded = newPassword.encode('ascii')
+        password_bytes = base64.b64encode(password_encoded)
+        password_finished = password_bytes.decode('ascii')
+        # Save password
+        passwords.append(newPassword)
+        # Save password to file
+        f = open(filename, "at")
+        f.write(password_finished)
+        f.write("\n")
+    # If user wants to use a random password generator with custom length:
+    elif userChoice == "3":
+        lengthOfPassword = int(input("Enter the length of the password: "))
+        pwo.minlen = lengthOfPassword
+        pwo.maxlen = lengthOfPassword
+        newPassword = pwo.generate()
         print("\nPassword created, saving...")
         time.sleep(2)
         password_encoded = newPassword.encode('ascii')
@@ -84,17 +104,6 @@ def createPassword():
         f = open(filename, "at")
         f.write(password_finished)
         f.write("\n")
-    elif userChoice == "3":
-        lengthOfPassword = int(input("Enter the length of the password: "))
-        pwo.minlen = lengthOfPassword
-        pwo.maxlen = lengthOfPassword
-        newPassword = pwo.generate()
-        print("\nPassword created, saving...")
-        time.sleep(2)
-        # Save password
-        passwords.append(newPassword)
-        f = open(filename, "at")
-        f.write(newPassword + "\n")
     # If user enters something else:    
     else:
         # Tell user to enter 1 or 2 the next time
