@@ -1,5 +1,11 @@
 # PassMax Changelog
 
+0.1.3:
+
+- Add export password
+- Add export all passwords (Of course encrypted)
+- Fix Bugs in encryption
+
 0.1.2:
 
 - Add encryption
