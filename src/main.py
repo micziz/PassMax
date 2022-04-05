@@ -1,5 +1,5 @@
 # Import standard modules
-import time, base64
+import time, base64, os, sys
 
 # Import non standard modules
 from password_generator import PasswordGenerator
@@ -10,13 +10,23 @@ f = Figlet(font='slant')
 # Render thanks
 print(f.renderText('PassMax'))
 # Declare version
-version = "0.1.3"
+version = "0.1.4"
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
 filename = "pass.txt"
 # List of passwords
 passwords = []
+
+if sys.platform == "linux":
+    clear_command = "clear"
+elif sys.platform == "linux2":
+    clear_command = "clear"
+elif sys.platform == "darwin":
+    clear_command = "clear"
+elif sys.platform == "win32":
+    clear_command = "cls"
+
 # Try to open file
 try:
     # Read passwords from file
@@ -90,24 +100,32 @@ def createPassword():
         f.write("\n")
     # If user wants to use a random password generator with custom length:
     elif userChoice == "3":
+        # Get length of password
         lengthOfPassword = int(input("Enter the length of the password: "))
+        # Set the length of the password in the password generator
         pwo.minlen = lengthOfPassword
         pwo.maxlen = lengthOfPassword
+        # Generate password
         newPassword = pwo.generate()
+        # Tell user password is being saved
         print("\nPassword created, saving...")
+        # Sleep for 2 seconds
         time.sleep(2)
+        # Encode password
         password_encoded = newPassword.encode('ascii')
         password_bytes = base64.b64encode(password_encoded)
         password_finished = password_bytes.decode('ascii')
         # Save password
         passwords.append(newPassword)
+        # Save password to file
         f = open(filename, "at")
         f.write(password_finished)
         f.write("\n")
     # If user enters something else:    
     else:
-        # Tell user to enter 1 or 2 the next time
+        # Tell user to enter 1,2 or 3 the next time
         print("Invalid command, returning to menu")
+        time.sleep(2)
         
         
 
@@ -296,6 +314,7 @@ def commands():
 
 # While loop to keep program running
 while True:
+    os.system()
     # Welcome user
     print("Welcome to PassMax!")
     # Ask user what they want to do
