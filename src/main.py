@@ -307,6 +307,13 @@ PassMax is open source. Source code is available at https://www.github.com/miczi
     time.sleep(3)
 # Import passwords from file function 
 def importPassword():
+    print(masterPassword)
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     # Steps to import passwords
     print("There are some steps to follow:")
     print("1-Take all passwords you want to import and save them in a file")
@@ -334,6 +341,13 @@ def importPassword():
 
 # Export passwords to file function
 def exportPassword():
+    print(masterPassword)
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     whatPassToExport = input("Enter the password you want to export: ")
     if whatPassToExport in passwords:
         # Export password
@@ -350,6 +364,13 @@ def exportPassword():
 
 # Export all passwords to file function
 def exportAllPass():
+    print(masterPassword)
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     # Open file
     fE = open("src/export.txt", "wt")
     # For each password in list
