@@ -5,7 +5,18 @@ import time, base64, os, sys
 from password_generator import PasswordGenerator
 from pyfiglet import Figlet
 from cryptography.fernet import Fernet
-
+# Check what platform the user is using
+# And declere the correct clear command
+if sys.platform == "linux":
+    clear_command = "clear"
+elif sys.platform == "linux2":
+    clear_command = "clear"
+elif sys.platform == "darwin":
+    clear_command = "clear"
+elif sys.platform == "win32":
+    clear_command = "cls"
+# Clear passwords function
+os.system(clear_command)
 # Declare figelt
 f = Figlet(font='slant')
 # Render thanks
@@ -19,16 +30,6 @@ filename = "pass.txt"
 # List of passwords
 passwords = []
 
-# Check what platform the user is using
-# And declere the correct clear command
-if sys.platform == "linux":
-    clear_command = "clear"
-elif sys.platform == "linux2":
-    clear_command = "clear"
-elif sys.platform == "darwin":
-    clear_command = "clear"
-elif sys.platform == "win32":
-    clear_command = "cls"
 
 
 # Try to open file
