@@ -75,6 +75,12 @@ except FileNotFoundError:
     
 # Create a new password function
 def createPassword():
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     # Check if the user wants to create a new password by themselves or by using a random password generator
     print("1-Create a new password by yourself. \n2-Use a random password generator \n3-Custom random password generation")
     # Get user choice
@@ -147,7 +153,6 @@ def createPassword():
 
 # List passwords function
 def listPasswords():
-    print(masterPassword)
     inputMasterPassword = input("Enter your master password: ")
     if inputMasterPassword in masterPassword:
         print("Master password correct")
@@ -177,6 +182,12 @@ def listPasswords():
 
 # Edit passwords function
 def editPasswords():
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     # Get password to edit
     print("What password do you want to edit?")
     print("PS: You can list all passwords using L, to see which one you want to edit")
@@ -216,6 +227,13 @@ def editPasswords():
 
 # Delete passwords function
 def deletePasswords():
+    print(masterPassword)
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     # Get password to delete
     print("What password do you want to delete?")
     print("PS: You can list all passwords using L, to see which one you want to delete")
@@ -242,6 +260,18 @@ def deletePasswords():
         
 # Delete all passwords function
 def deleteAllPasswords():
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     # Confirm deletion
     print("Are you sure you want to delete all passwords?")
     print("PS: You can deleate just one password using D, to see which one you want to delete")
