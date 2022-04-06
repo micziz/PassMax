@@ -266,7 +266,7 @@ def deleteAllPasswords():
     else:
         print("Master password incorrect")
         sys.exit()
-    inputMasterPassword = input("Enter your master password: ")
+    inputMasterPassword = input("Enter your master password again: ")
     if inputMasterPassword in masterPassword:
         print("Master password correct")
     else:
