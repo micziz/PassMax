@@ -1,5 +1,11 @@
 # PassMax Changelog
 
+0.2.1:
+
+- Add a master password
+- Small ui changes
+
+
 0.2.0 Octopus officer:
 
 - FULL ENCRYPTION
