@@ -13,6 +13,7 @@ Open the PassMax folder in your favourite editor. Then in the source folder crea
 pass.txt
 import.txt
 export.txt
+masterpass.txt
 ```
 
 ## 3-Create a new branch

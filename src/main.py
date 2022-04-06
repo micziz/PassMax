@@ -4,6 +4,7 @@ import time, base64, os, sys
 # Import non standard modules
 from password_generator import PasswordGenerator
 from pyfiglet import Figlet
+from cryptography.fernet import Fernet
 
 # Declare figelt
 f = Figlet(font='slant')
@@ -28,6 +29,7 @@ elif sys.platform == "darwin":
     clear_command = "clear"
 elif sys.platform == "win32":
     clear_command = "cls"
+
 
 # Try to open file
 try:
@@ -59,6 +61,18 @@ except FileNotFoundError:
     # Sleep for 2 seconds
     time.sleep(2)
 
+try:
+    fMP = open("src/masterpass.txt", "rt")
+    masterPassword = fMP.readlines()
+    fMP.close()
+except FileNotFoundError:
+    print("Master password found")
+    masterPassword = input("Enter your new master password: ")
+    fMP = open("src/masterpass.txt", "wt")
+    fMP.write(masterPassword)
+    fMP.close()
+
+    
 # Create a new password function
 def createPassword():
     # Check if the user wants to create a new password by themselves or by using a random password generator
@@ -133,6 +147,13 @@ def createPassword():
 
 # List passwords function
 def listPasswords():
+    print(masterPassword)
+    inputMasterPassword = input("Enter your master password: ")
+    if inputMasterPassword in masterPassword:
+        print("Master password correct")
+    else:
+        print("Master password incorrect")
+        sys.exit()
     if passwords == []:
         print("There are no passwords")    
     else:
@@ -152,7 +173,7 @@ def listPasswords():
             print(f"Password {passwordNumberString}: {password}")
             passwordNumber += 1
             passwordNumberString = str(passwordNumber)
-    time.sleep(2)
+    input("Press enter to return to menu")
 
 # Edit passwords function
 def editPasswords():
