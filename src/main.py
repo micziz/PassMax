@@ -147,7 +147,6 @@ def createPassword():
 
 # List passwords function
 def listPasswords():
-    print(masterPassword)
     inputMasterPassword = input("Enter your master password: ")
     if inputMasterPassword in masterPassword:
         print("Master password correct")
