@@ -231,7 +231,6 @@ def editPasswords():
 
 # Delete passwords function
 def deletePasswords():
-    print(masterPassword)
     inputMasterPassword = input("Enter your master password: ")
     if inputMasterPassword in masterPassword:
         print("Master password correct")
@@ -319,7 +318,6 @@ PassMax is open source. Source code is available at https://www.github.com/miczi
 
 # Import passwords from file function
 def importPassword():
-    print(masterPassword)
     inputMasterPassword = input("Enter your master password: ")
     if inputMasterPassword in masterPassword:
         print("Master password correct")
@@ -354,7 +352,6 @@ def importPassword():
 
 # Export passwords to file function
 def exportPassword():
-    print(masterPassword)
     inputMasterPassword = input("Enter your master password: ")
     if inputMasterPassword in masterPassword:
         print("Master password correct")
@@ -378,7 +375,6 @@ def exportPassword():
 
 # Export all passwords to file function
 def exportAllPass():
-    print(masterPassword)
     inputMasterPassword = input("Enter your master password: ")
     if inputMasterPassword in masterPassword:
         print("Master password correct")
