@@ -36,8 +36,8 @@ passwords = []
 try:
     # Read passwords from file
     ff = open(filename, "rt")
-    # Decode passwords with base64
     passwords_encoded = ff.readlines()
+    # Decode passwords with base64
     passwords_encodedStr = str(passwords_encoded)
     passwords_bytes = passwords_encodedStr.encode("ascii")
     final_bytes = base64.b64decode(passwords_bytes)
@@ -52,35 +52,55 @@ try:
 except FileNotFoundError:
     # Print error
     print("No pass.txt found")
+    # Print that the file is being created
     print("Creating pass.txt")
     # Create file
     ff = open(filename, "wt")
+    # Close it
     ff.close()
+    # Open it in read mode.
     ff = open(filename, "rt")
     # Add passwords to list
     passwords = ff.readlines()
     # Sleep for 2 seconds
     time.sleep(2)
 
+# Try to read the master password file
 try:
+    # Open it
     fMP = open("src/masterpass.txt", "rt")
+    # Read it
     masterPassword = fMP.readlines()
+    # Close it
     fMP.close()
+# If file does not exist:
 except FileNotFoundError:
+    # Print error
     print("Master password found")
+    # Create Master password
     masterPassword = input("Enter your new master password: ")
+    # Create file
     fMP = open("src/masterpass.txt", "wt")
+    # Write to file
     fMP.write(masterPassword)
+    # Close it
     fMP.close()
 
 
 # Create a new password function
 def createPassword():
+    # Get Master Password
     inputMasterPassword = input("Enter your master password: ")
+    # Check if password is correct
+    # If yes:
     if inputMasterPassword in masterPassword:
+        # Print that password is correct
         print("Master password correct")
+    # If no:
     else:
+        # Print that password is incorrect
         print("Master password incorrect")
+        # Exit
         sys.exit()
     # Check if the user wants to create a new password by themselves or by using a random password generator
     print(
@@ -155,32 +175,50 @@ def createPassword():
 
 # List passwords function
 def listPasswords():
+    # Get Master Password
     inputMasterPassword = input("Enter your master password: ")
+    # Check if password is correct
+    # If yes:
     if inputMasterPassword in masterPassword:
+        # Print that password is correct
         print("Master password correct")
+    # If no:
     else:
+        # Print that password is incorrect
         print("Master password incorrect")
+        # Exit
         sys.exit()
+    # If there are no passwords
     if passwords == []:
+        # Print that there are no passwords
         print("There are no passwords")
+    # If there are passwords
     else:
+        # Print "Here are your passwords:"
         print("Here are your passwords")
         # Read passwords from file
         fL = open(filename, "rt")
+        # Decode passwords with base64
         passwordRead = fL.readlines()
         passwordReadStr = str(passwordRead)
         base64_bytes = passwordReadStr.encode("ascii")
         message_bytes = base64.b64decode(base64_bytes)
         passwordsImported = message_bytes.decode("ascii")
+        # Append it to passwords
         passwords.append(passwordsImported)
         # Add a number for every password is printed
         passwordNumber = 1
+        # Transform to string
         passwordNumberString = str(passwordNumber)
+        # For every password in passwords
         for password in passwords:
+            # Print the number and the password
             print(f"Password {passwordNumberString}: {password}")
+            # Add 1 to passwordNumber
             passwordNumber += 1
             passwordNumberString = str(passwordNumber)
-    input("Press enter to return to menu")
+    # If the user wants to return to the menu:
+    input("\nPress enter to return to menu")
 
 
 # Edit passwords function
