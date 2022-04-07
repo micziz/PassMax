@@ -223,14 +223,22 @@ def listPasswords():
 
 # Edit passwords function
 def editPasswords():
+    # Get Master Password
     inputMasterPassword = input("Enter your master password: ")
+    # Check if password is correct
+    # If yest
     if inputMasterPassword in masterPassword:
+        # Print that password is correct
         print("Master password correct")
+    # If no:
     else:
+        # Print that password is incorrect
         print("Master password incorrect")
+        # Exit
         sys.exit()
     # Get password to edit
     print("What password do you want to edit?")
+    # Remind that it can list it
     print("PS: You can list all passwords using L, to see which one you want to edit")
     whatPassToEdit = input("Enter the password you want to edit: ")
     # Check if password exists
