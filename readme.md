@@ -5,10 +5,10 @@
   - [What is PassMax?](#what-is-passmax)
   - [Why should I use PassMax, and not something like 1Password?](#why-should-i-use-passmax-and-not-something-like-1password)
 - [Installation](#installation)
-  - [Contributing:](#contributing)
-  - [Changelog:](#changelog)
-  - [License](#license)
-  - [Contributors](#contributors)
+- [Contributing:](#contributing)
+- [Changelog:](#changelog)
+- [License](#license)
+- [Contributors](#contributors)
 
 # General info
 
@@ -24,20 +24,20 @@ PassMax is completely local. This means that unless a hacker has access to you c
 
 Currently, PassMax can only be installed from source. It's not hard! You can find install instructions in the wiki.
 
-## Contributing:
+# Contributing:
 
 Check out [contributing.md](contributing.md) for info about contributing.
 
-## Changelog:
+# Changelog:
 
-The changelog can be found at [changelog.md](changelog.md)
+The full changelog can be found at [changelog.md](changelog.md)
 
-## License
+# License
 
 PassMax is licensed under the GNU General Public License v3.0.
 
 Refer to [COPYING](COPYING) for more info.
 
-## Contributors
+# Contributors
 
 - Micziz
