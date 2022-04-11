@@ -38,16 +38,18 @@ clear = checkPlatfrom()
 os.system(clear)
 # Declare figelt
 f = Figlet(font="slant")
-# Render thanks
-print(f.renderText("PassMax"))
 # Declare version
-version = "0.2.0"
+version = "0.2.1"
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
 filename = "pass.txt"
 # List of passwords
 passwords = []
+
+
+# Render passmax
+print(f.renderText("PassMax"))
 
 
 # Try to open file
@@ -494,61 +496,64 @@ def commands():
         commands()
 
 
-# While loop to keep program running
-while True:
-    # Clear screen
-    os.system(clear)
-    # Welcome user
-    print("Welcome to PassMax!")
-    # Ask user what they want to do
-    print("What do you want to do today?")
-    # List options
-    print(
-        "Create Passwords: [C]reate a new password\nImport/Export: [I]mport other files [EX]prot a password [EXA]Export All Passwords\nManage Password: [L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [Q]uit: "
-    )
-    # Get user input
-    whatToDo = input("Enter your choice: ")
-    # If user wants to create a new password
-    if whatToDo == "C":
-        # Call createPassword function
-        createPassword()
-    # If user wants to import other files
-    elif whatToDo == "I":
-        # Call importPassword function
-        importPassword()
-    # if user wants to export a password
-    elif whatToDo == "EX":
-        exportPassword()
-    # If user wants to export all passwords
-    elif whatToDo == "EXA":
-        exportAllPass()
-    # If user wants to list all passwords
-    elif whatToDo == "L":
-        # Call listPasswords function
-        listPasswords()
-    # If user wants to edit a password
-    elif whatToDo == "E":
-        # Ask user which password to edit
-        editPasswords()
-    # If user wants to delete a password
-    elif whatToDo == "D":
-        # Ask user which password to delete
-        deletePasswords()
-    # If user wants to delete all passwords
-    elif whatToDo == "DA":
-        # Deleate all passwords
-        deleteAllPasswords()
-    # If user wants to get info
-    elif whatToDo == "IN":
-        # Call info function
-        info()
-    # If user wants to get info about commands
-    elif whatToDo == "CM":
-        # Call commands function
-        commands()
-    # If user wants to quit
-    elif whatToDo == "Q":
-        # Quit program
-        print("Quitting, goodbye!")
-        # Exit program
-        sys.exit()
+
+def main():
+    # While loop to keep program running
+    while True:
+        # Clear screen
+        os.system(clear)
+        # Welcome user
+        print("Welcome to PassMax!")
+        # Ask user what they want to do
+        print("What do you want to do today?")
+        # List options
+        print(
+            "Create Passwords: [C]reate a new password\nImport/Export: [I]mport other files [EX]prot a password [EXA]Export All Passwords\nManage Password: [L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [Q]uit: "
+        )
+        # Get user input
+        whatToDo = input("Enter your choice: ")
+        # If user wants to create a new password
+        if whatToDo == "C":
+            # Call createPassword function
+            createPassword()
+        # If user wants to import other files
+        elif whatToDo == "I":
+            # Call importPassword function
+            importPassword()
+        # if user wants to export a password
+        elif whatToDo == "EX":
+            exportPassword()
+        # If user wants to export all passwords
+        elif whatToDo == "EXA":
+            exportAllPass()
+        # If user wants to list all passwords
+        elif whatToDo == "L":
+            # Call listPasswords function
+            listPasswords()
+        # If user wants to edit a password
+        elif whatToDo == "E":
+            # Ask user which password to edit
+            editPasswords()
+        # If user wants to delete a password
+        elif whatToDo == "D":
+            # Ask user which password to delete
+            deletePasswords()
+        # If user wants to delete all passwords
+        elif whatToDo == "DA":
+            # Deleate all passwords
+            deleteAllPasswords()
+        # If user wants to get info
+        elif whatToDo == "IN":
+            # Call info function
+            info()
+        # If user wants to get info about commands
+        elif whatToDo == "CM":
+            # Call commands function
+            commands()
+        # If user wants to quit
+        elif whatToDo == "Q":
+            # Quit program
+            print("Quitting, goodbye!")
+            # Exit program
+            sys.exit()
+
