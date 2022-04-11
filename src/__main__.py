@@ -372,7 +372,7 @@ def info():
     # Author
     print("Author: micziz\n")
     # License
-    print("License: GNU GPLv3\n")
+    print("License: LLV1\n")
     # General info
     print(
         """
