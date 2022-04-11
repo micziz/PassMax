@@ -7,6 +7,7 @@
   - [Contributing:](#contributing)
   - [Changelog:](#changelog)
   - [License](#license)
+  - [Contributors](#contributors)
 
 ## What is PassMax?
 
@@ -33,6 +34,8 @@ The changelog can be found at [changelog.md](changelog.md)
 
 PassMax is licensed under the GNU General Public License v3.0.
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+Refer to (COPYING)[COPYING] for more info.
 
-Learn more about the license at the [LICENSE](LICENSE) file.
+## Contributors
+
+- Micziz
