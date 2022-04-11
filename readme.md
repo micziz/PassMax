@@ -34,7 +34,7 @@ The changelog can be found at [changelog.md](changelog.md)
 
 PassMax is licensed under the GNU General Public License v3.0.
 
-Refer to (COPYING)[COPYING] for more info.
+Refer to [COPYING](COPYING) for more info.
 
 ## Contributors
 
