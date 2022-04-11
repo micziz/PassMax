@@ -54,6 +54,7 @@ passwords = []
 try:
     # Read passwords from file
     ff = open(filename, "rt")
+    # Read each line
     passwords_encoded = ff.readlines()
     # Decode passwords with base64
     passwords_encodedStr = str(passwords_encoded)
@@ -94,7 +95,7 @@ try:
 # If file does not exist:
 except FileNotFoundError:
     # Print error
-    print("Master password found")
+    print("Master password not found")
     # Create Master password
     masterPassword = input("Enter your new master password: ")
     # Create file
@@ -117,7 +118,7 @@ def createPassword():
     # If no:
     else:
         # Print that password is incorrect
-        print("Master password incorrect")
+        print("Master password incorrect!!!! EXITING")
         # Exit
         sys.exit()
     # Check if the user wants to create a new password by themselves or by using a random password generator
