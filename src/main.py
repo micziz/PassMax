@@ -509,16 +509,25 @@ while True:
     elif whatToDo == "E":
         # Ask user which password to edit
         editPasswords()
+    # If user wants to delete a password
     elif whatToDo == "D":
         # Ask user which password to delete
         deletePasswords()
+    # If user wants to delete all passwords
     elif whatToDo == "DA":
         # Deleate all passwords
         deleteAllPasswords()
+    # If user wants to get info
     elif whatToDo == "IN":
+        # Call info function
         info()
+    # If user wants to get info about commands
     elif whatToDo == "CM":
+        # Call commands function
         commands()
+    # If user wants to quit
     elif whatToDo == "Q":
+        # Quit program
         print("Quitting, goodbye!")
-        break
+        # Exit program
+        sys.exit()
