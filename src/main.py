@@ -1,22 +1,41 @@
+# PassMax
+# 
+# PassMax  is a Secure and Local password manager built with python, and designed to be fast.
+# PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.
+# Thanks for using PassMax!
+
+
+# ==================START=====================
+
+
 # Import standard modules
+from asyncore import read
 import time, base64, os, sys
 
 # Import non standard modules
-from password_generator import PasswordGenerator
-from pyfiglet import Figlet
+from password_generator import PasswordGenerator # Password generator 
+from pyfiglet import Figlet # Pyfiglet
+
+# Actual start
 
 # Check what platform the user is using
 # And declere the correct clear command
-if sys.platform == "linux":
-    clear_command = "clear"
-elif sys.platform == "linux2":
-    clear_command = "clear"
-elif sys.platform == "darwin":
-    clear_command = "clear"
-elif sys.platform == "win32":
-    clear_command = "cls"
+def checkPlatfrom():
+    if sys.platform == "linux":
+        clear_command = "clear"
+        return clear_command
+    elif sys.platform == "linux2":
+        clear_command = "clear"
+        return clear_command
+    elif sys.platform == "darwin":
+        clear_command = "clear"
+        return clear_command
+    elif sys.platform == "win32":
+        clear_command = "cls"
+        return clear_command
 # Clear passwords function
-os.system(clear_command)
+clear = checkPlatfrom()
+os.system(clear)
 # Declare figelt
 f = Figlet(font="slant")
 # Render thanks
@@ -344,7 +363,7 @@ def deleteAllPasswords():
 # Info function
 def info():
     # Clear screen
-    os.system(clear_command)
+    os.system(clear)
     # Tell version
     print(f"PassMax version {version}\n")
     # Author
@@ -444,7 +463,7 @@ def exportAllPass():
 # Commands function
 def commands():
     # Clear screen
-    os.system(clear_command)
+    os.system(clear)
     # Print commands
     print(
         "Welcome to the commands section! Here you can find all commands you can use in PassMax"
@@ -476,7 +495,8 @@ def commands():
 
 # While loop to keep program running
 while True:
-    os.system(clear_command)
+    # Clear screen
+    os.system(clear)
     # Welcome user
     print("Welcome to PassMax!")
     # Ask user what they want to do
