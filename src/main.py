@@ -4,7 +4,6 @@ import time, base64, os, sys
 # Import non standard modules
 from password_generator import PasswordGenerator
 from pyfiglet import Figlet
-from cryptography.fernet import Fernet
 
 # Check what platform the user is using
 # And declere the correct clear command
