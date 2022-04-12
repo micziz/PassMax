@@ -533,18 +533,17 @@ def main():
                     # 1. Not print when this dict is created
                     # 2. Be callable, print when called!
         }
-        while True: # Do this until exit (Ctrl + C or 'Q' cmd)
-            # Get user input
-            whatToDo = input("Enter your choice: ")
-            
-            try:
-                options[whatToDo]() 
-                # Get callable function from dict based on input and call
-                # Cleaner to read and write the options dict, but this can be a tiny but confusing to understand
-            except KeyError:
-                print('Invalid Command')
-                pass # Do nothing if input is not in command list,
-                     # Since this is in a loop, it will ask for input again above
+        # Get user input
+        whatToDo = input("Enter your choice: ")
+
+        try:
+            options[whatToDo]() 
+            # Get callable function from dict based on input and call
+            # Cleaner to read and write the options dict, but this can be a tiny but confusing to understand
+        except KeyError:
+            print('Invalid Command')
+            pass # Do nothing if input is not in command list,
+                 # Since this is in a loop, it will ask for input again above
 
 
 if __name__ == "__main__":
