@@ -515,7 +515,7 @@ def main():
         print("What do you want to do today?")
         # List options
         print(
-            "Create Passwords: [C]reate a new password\nImport/Export: [I]mport other files [EX]prot a password [EXA]Export All Passwords\nManage Password: [L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [Q]uit: "
+            "Create Passwords: [C]reate a new password\nImport/Export: [I]mport other files [EX]prot a password [EXA]Export All Passwords\nManage Password: [L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [CL]ear the console [Q]uit: "
         )
         # Get user input
         whatToDo = input("Enter your choice: ")
