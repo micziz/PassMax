@@ -22,7 +22,7 @@ PassMax is completely local. This means that unless a hacker has access to you c
 
 # Installation
 
-Currently, PassMax can only be installed from source. It's not hard! You can find install instructions in the wiki.
+You are on the Lite branch of PassMax. This may (and will) be outdated. Ths is really for extreme case. Install instructions in the wiki but remove the requirements.txt step!
 
 # Contributing:
 
