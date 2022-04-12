@@ -9,9 +9,12 @@
 
 
 # Import standard modules
-import time, base64, os, sys, string, random
+from asyncore import read
+import time, base64, os, sys
 
 # Import non standard modules
+from password_generator import PasswordGenerator # Password generator 
+from pyfiglet import Figlet # Pyfiglet
 
 # Actual start
 
@@ -33,8 +36,12 @@ def checkPlatfrom():
 # Clear passwords function
 clear = checkPlatfrom()
 os.system(clear)
+# Declare figelt
+f = Figlet(font="slant")
 # Declare version
 version = "0.2.1"
+# Start the password generator
+pwo = PasswordGenerator()
 # Filename to store passwords
 filename = "pass.txt"
 # List of passwords
@@ -42,7 +49,7 @@ passwords = []
 
 
 # Render passmax
-print("PassMax")
+print(f.renderText("PassMax"))
 
 
 # Try to open file
@@ -142,9 +149,7 @@ def createPassword():
     # If user wants to use a random password generator:
     elif userChoice == "2":
         # Generate password
-        chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
-        size = 8
-        newPassword = ''.join(random.choice(chars) for x in range(size, 20))
+        newPassword = pwo.generate()
         # Tell user password is being saved
         print("\nPassword created, saving...")
         # Sleep for 2 seconds
@@ -162,11 +167,12 @@ def createPassword():
     # If user wants to use a random password generator with custom length:
     elif userChoice == "3":
         # Get length of password
-        size = int(input("Enter the length of the password: "))
+        lengthOfPassword = int(input("Enter the length of the password: "))
         # Set the length of the password in the password generator
+        pwo.minlen = lengthOfPassword
+        pwo.maxlen = lengthOfPassword
         # Generate password
-        chars = string.ascii_uppercase + string.ascii_lowercase + string.digits
-        newPassword = ''.join(random.choice(chars) for x in range(size, 20)) 
+        newPassword = pwo.generate()
         # Tell user password is being saved
         print("\nPassword created, saving...")
         # Sleep for 2 seconds
