@@ -557,6 +557,10 @@ def main():
         elif whatToDo == "CM":
             # Call commands function
             commands()
+        # If the user wants to clear the console
+        if whatToDo == "CL":
+            # Clear the console
+            os.system(clear)
         # If user wants to quit
         elif whatToDo == "Q":
             # Quit program
