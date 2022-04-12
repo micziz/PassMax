@@ -9,7 +9,6 @@
 
 
 # Import standard modules
-from asyncore import read
 import time, base64, os, sys
 
 # Import non standard modules
