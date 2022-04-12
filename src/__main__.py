@@ -1,6 +1,6 @@
 # PassMax
 # 
-# PassMax  is a Secure and Local password manager built with python, and designed to be fast.
+# PassMax is a Secure and Local password manager built with python, and designed to be fast.
 # PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.
 # Thanks for using PassMax!
 
@@ -17,25 +17,38 @@ from pyfiglet import Figlet # Pyfiglet
 
 # Actual start
 
+command_list = "\n".join([
+                "Welcome to the commands section! Here you can find all commands you can use in PassMax",
+                "[C]: [C]reate a new password. You can create a password by yourself, or you can use the auto-generator (With Paramaters)",
+                "[L]: [L]ist all passwords. You can list all passwords you have saved",
+                "[E]: [E]dit a password. You can edit a password you have saved",
+                "[D]: [D]elete a password. You can delete a password you have saved",
+                "[DA]: [D]elete [A]ll passwords. You can delete all passwords you have saved",
+                "[I]: [I]mport passwords. You can import passwords from a file",
+                "[EX]: [EX]port a password. You can export a password to a file",
+                "[EXA]: [EX]port [A]ll passwords. You can export all passwords to a file",
+                "[IN]: [IN]fo. You can get info about PassMax",
+                "[CM]: [C]o[M]mands. You can get info about all commands you can use in PassMax",
+                "[CL]: [CL]ear the console",
+                "[Q]: [Q]uit PassMax",
+                "", # Blank line after command list
+            ])
+
 # Check what platform the user is using
 # And declere the correct clear command
-def checkPlatfrom():
-    if sys.platform == "linux":
-        clear_command = "clear"
-        return clear_command
-    elif sys.platform == "linux2":
-        clear_command = "clear"
-        return clear_command
-    elif sys.platform == "darwin":
-        clear_command = "clear"
-        return clear_command
-    elif sys.platform == "win32":
-        clear_command = "cls"
-        return clear_command
-# Clear passwords function
-clear = checkPlatfrom()
+def clear_terminal() -> None:
+  if sys.stdout.isatty(): # if in a terminal
+    if sys.platform.startswith("win"):
+      # For windows, use cls
+      os.system("cls")
+    else:
+      # For MacOS / Linux, this should clear the terminal
+      sys.stdout.write("\033[2J\033[1;1H")
+  # Do nothing if not a terminal
+  return
+
 # Clear the console
-os.system(clear)
+clear_terminal()
 # Declare figelt
 f = Figlet(font="slant")
 # Declare version
@@ -124,8 +137,11 @@ def createPassword():
         # Exit
         sys.exit()
     # Check if the user wants to create a new password by themselves or by using a random password generator
-    print(
-        "1-Create a new password by yourself. \n2-Use a random password generator \n3-Custom random password generation"
+    print("\n".join([
+            "1-Create a new password by yourself",
+            "2-Use a random password generator",
+            "3-Custom random password generation",
+        ])
     )
     # Get user choice
     userChoice = input("Enter your choice: ")
@@ -368,7 +384,7 @@ def deleteAllPasswords():
 # Info function
 def info():
     # Clear screen
-    os.system(clear)
+    clear_terminal()
     # Tell version
     print(f"PassMax version {version}\n")
     # Author
@@ -379,8 +395,8 @@ def info():
     print(
         """
 PassMax is a password manager that allows you to store your passwords in a secure way and local way!
-PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.  
-          """
+PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.
+"""
     )
     time.sleep(3)
 
@@ -473,24 +489,9 @@ def exportAllPass():
 # Commands function
 def commands():
     # Clear screen
-    os.system(clear)
+    clear_terminal()
     # Print commands
-    print(
-        "Welcome to the commands section! Here you can find all commands you can use in PassMax"
-    )
-    print(
-        "[C]: Create a new password. You can create a password by yourself, or you can use the auto-generator (With Paramaters)"
-    )
-    print("[L]: List all passwords. You can list all passwords you have saved")
-    print("[E]: Edit a password. You can edit a password you have saved")
-    print("[D]: Delete a password. You can delete a password you have saved")
-    print("[DA]: Delete all passwords. You can delete all passwords you have saved")
-    print("[I]: Import passwords. You can import passwords from a file")
-    print("[EX]: Export a password. You can export a password to a file")
-    print("[EXA]: Export all passwords. You can export all passwords to a file")
-    print("[IN]: Info. You can get info about PassMax")
-    print("[CM]: Commands. You can get info about all commands you can use in PassMax")
-    print("[Q]: Quit PassMax")
+    print(command_list)
     # Check if user wants to quit
     returnToMenu = input("Enter Q to return to the main menu: ")
     # If yes:
@@ -508,65 +509,43 @@ def main():
     # While loop to keep program running
     while True:
         # Clear screen
-        os.system(clear)
+        clear_terminal()
         # Welcome user
         print("Welcome to PassMax!")
         # Ask user what they want to do
         print("What do you want to do today?")
         # List options
-        print(
-            "Create Passwords: [C]reate a new password\nImport/Export: [I]mport other files [EX]prot a password [EXA]Export All Passwords\nManage Password: [L]ist all passwords, [E]dit a password\nDeleate Password: [D]elete a password, [DA]Deleate all passwords\nOther: [IN]fo, [CM]Commands [CL]ear the console [Q]uit: "
-        )
-        # Get user input
-        whatToDo = input("Enter your choice: ")
-        # If user wants to create a new password
-        if whatToDo == "C":
-            # Call createPassword function
-            createPassword()
-        # If user wants to import other files
-        elif whatToDo == "I":
-            # Call importPassword function
-            importPassword()
-        # if user wants to export a password
-        elif whatToDo == "EX":
-            exportPassword()
-        # If user wants to export all passwords
-        elif whatToDo == "EXA":
-            exportAllPass()
-        # If user wants to list all passwords
-        elif whatToDo == "L":
-            # Call listPasswords function
-            listPasswords()
-        # If user wants to edit a password
-        elif whatToDo == "E":
-            # Ask user which password to edit
-            editPasswords()
-        # If user wants to delete a password
-        elif whatToDo == "D":
-            # Ask user which password to delete
-            deletePasswords()
-        # If user wants to delete all passwords
-        elif whatToDo == "DA":
-            # Deleate all passwords
-            deleteAllPasswords()
-        # If user wants to get info
-        elif whatToDo == "IN":
-            # Call info function
-            info()
-        # If user wants to get info about commands
-        elif whatToDo == "CM":
-            # Call commands function
-            commands()
-        # If the user wants to clear the console
-        if whatToDo == "CL":
-            # Clear the console
-            os.system(clear)
-        # If user wants to quit
-        elif whatToDo == "Q":
-            # Quit program
-            print("Quitting, goodbye!")
-            # Exit program
-            sys.exit()
+        print(command_list)
+        options = {
+            "C" : createPassword,
+            "I" : importPassword,
+            "EX" : exportPassword,
+            "EXA" : exportAllPass,
+            "L" : listPasswords,
+            "E" : editPasswords,
+            "D" : deletePasswords,
+            "DA" : deleteAllPasswords,
+            "IN" : info,
+            "CM" : commands,
+            "CL" : clear_terminal,
+            "Q" : lambda : ( print("Quitting, goodbye!"), sys.exit() )
+                  # Lambda because we want this to:
+                    # 1. Not print when this dict is created
+                    # 2. Be callable, print when called!
+        }
+        while True: # Do this until exit (Ctrl + C or 'Q' cmd)
+            # Get user input
+            whatToDo = input("Enter your choice: ")
+            
+            try:
+                options[whatToDo]() 
+                # Get callable function from dict based on input and call
+                # Cleaner to read and write the options dict, but this can be a tiny but confusing to understand
+            except KeyError:
+                print('Invalid Command')
+                pass # Do nothing if input is not in command list,
+                     # Since this is in a loop, it will ask for input again above
 
 
-main()
+if __name__ == "__main__":
+    main()
