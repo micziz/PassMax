@@ -34,6 +34,7 @@ def checkPlatfrom():
         return clear_command
 # Clear passwords function
 clear = checkPlatfrom()
+# Clear the console
 os.system(clear)
 # Declare figelt
 f = Figlet(font="slant")
