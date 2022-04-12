@@ -142,10 +142,10 @@ def createPassword():
         password_bytes = base64.b64encode(password_encoded)
         password_finished = password_bytes.decode("ascii")
         # Save password
-        passwords.append(password_finished)
         f = open(filename, "at")
         f.write(password_finished)
         f.write("\n")
+        f.close()
     # If user wants to use a random password generator:
     elif userChoice == "2":
         # Generate password
@@ -289,6 +289,7 @@ def editPasswords():
             f.write(newPassword_finished + "\n")
     elif whatPassToEdit == "L":
         listPasswords()
+        editPassMode = True
     # If no:
     else:
         # Tell user password does not exist
@@ -322,6 +323,7 @@ def deletePasswords():
         passwords.remove(whatPassToDelete)
     elif whatPassToDelete == "L":
         listPasswords()
+        delPassMode = True
     # If password does not exist:
     else:
         # Tell user password does not exist
@@ -426,6 +428,7 @@ def exportPassword():
         print("Master password incorrect")
         sys.exit()
     whatPassToExport = input("Enter the password you want to export: ")
+    print("PS: Use l to list all passwords")
     if whatPassToExport in passwords:
         # Export password
         print("Exporting password...")
@@ -438,7 +441,11 @@ def exportPassword():
         fE.write(WPTEpassword_finished)
         # Close file
         fE.close()
-
+    elif whatPassToExport == "L":
+        listPasswords()
+        exportPassMode = True 
+    else:
+        print("Password not found")
 
 # Export all passwords to file function
 def exportAllPass():
@@ -557,3 +564,5 @@ def main():
             # Exit program
             sys.exit()
 
+
+main()
