@@ -427,8 +427,8 @@ def exportPassword():
     else:
         print("Master password incorrect")
         sys.exit()
-    whatPassToExport = input("Enter the password you want to export: ")
     print("PS: Use l to list all passwords")
+    whatPassToExport = input("Enter the password you want to export: ")
     if whatPassToExport in passwords:
         # Export password
         print("Exporting password...")
