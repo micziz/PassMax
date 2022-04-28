@@ -14,6 +14,7 @@ import time, base64, os, sys
 # Import non standard modules
 from password_generator import PasswordGenerator # Password generator 
 from pyfiglet import Figlet # Pyfiglet
+from cryptography.fernet import Fernet
 
 # Actual start
 
@@ -88,24 +89,15 @@ except FileNotFoundError:
 
 # Try to read the master password file
 try:
-    # Open it
-    fMP = open("src/masterpass.txt", "rt")
-    # Read it
-    masterPassword = fMP.readlines()
-    # Close it
-    fMP.close()
+    with open('src/masterpass.txt', 'rt') as f:
+        masterPassword = f.readline()
 # If file does not exist:
 except FileNotFoundError:
     # Print error
     print("Master password not found")
-    # Create Master password
     masterPassword = input("Enter your new master password: ")
-    # Create file
-    fMP = open("src/masterpass.txt", "wt")
-    # Write to file
-    fMP.write(masterPassword)
-    # Close it
-    fMP.close()
+    with open('src/masterpass.txt', 'wt') as f:
+        f.write(masterPassword)
 
 
 # Create a new password function
