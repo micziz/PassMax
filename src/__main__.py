@@ -3,6 +3,7 @@
 # PassMax is a Secure and Local password manager built with python, and designed to be fast.
 # PassMax is open source. Source code is available at https://www.github.com/micziz/PassMax.
 # Thanks for using PassMax!
+# License: Apache 2.0
 
 
 # ==================START=====================
