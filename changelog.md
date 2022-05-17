@@ -1,5 +1,10 @@
 # PassMax Changelog
 
+0.2.2:
+
+- Simplify main loop, general prettification by @ethnh
+- Change license to Apache 2.0 for brew compatibility.
+
 0.2.1:
 
 - Add a master password
