@@ -390,13 +390,9 @@ def deleteAllPasswords():
 def info():
     # Clear screen
     clear_terminal()
-    # Tell version
-    print(f"PassMax version {version}\n")
-    # Author
-    print("Author: micziz\n")
-    # License
-    print("License: Apache 2.0\n")
     # General info
+    print(f"PassMax version {version}\n Copytight 2021-2022 by micziz and contributors\n Licensed under the Apache License 2.0")
+    time.sleep(2)
     print(
         """
 PassMax is a password manager that allows you to store your passwords in a secure way and local way!
