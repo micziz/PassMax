@@ -62,6 +62,58 @@ def clear_terminal() -> None:
   # Do nothing if not a terminal
   return
 
+def startup():
+    global passwords
+    print("Loading...")
+    time.sleep(2)
+    print("Welcome to PassMax!")
+    print("Loading dependencies...")
+    try:
+        # Read passwords from file
+        ff = open(filename, "rt")
+        # Read each line
+        passwords_encoded = ff.readlines()
+        # Decode passwords with base64
+        passwords_encodedStr = str(passwords_encoded)
+        passwords_bytes = passwords_encodedStr.encode("ascii")
+        final_bytes = base64.b64decode(passwords_bytes)
+        final = final_bytes.decode("ascii")
+        # Add passwords to list
+        passwords.append(final)
+        # Close file
+        ff.close()
+        # Sleep for 2 seconds
+        time.sleep(2)
+    # If file does not exist:
+    except FileNotFoundError:
+        # Print error
+        print("No pass.txt found")
+        # Print that the file is being created
+        print("Creating pass.txt")
+        # Create file
+        ff = open(filename, "wt")
+        # Close it
+        ff.close()
+        # Open it in read mode.
+        ff = open(filename, "rt")
+        # Add passwords to list
+        passwords = ff.readlines()
+        # Sleep for 2 seconds
+        time.sleep(2)
+
+    # Try to read the master password file
+try:
+    with open('src/masterpass.txt', 'rt') as f:
+        masterPassword = f.readline()
+# If file does not exist:
+except FileNotFoundError:
+    # Print error
+    print("Master password not found")
+    masterPassword = input("Enter your new master password: ")
+    with open('src/masterpass.txt', 'wt') as f:
+        f.write(masterPassword)
+
+
 # Clear the console
 clear_terminal()
 # Declare figelt
@@ -74,58 +126,9 @@ pwo = PasswordGenerator()
 filename = "pass.txt"
 # List of passwords
 passwords = []
-
-
 # Render passmax
 print(f.renderText("PassMax"))
-
-
-# Try to open file
-try:
-    # Read passwords from file
-    ff = open(filename, "rt")
-    # Read each line
-    passwords_encoded = ff.readlines()
-    # Decode passwords with base64
-    passwords_encodedStr = str(passwords_encoded)
-    passwords_bytes = passwords_encodedStr.encode("ascii")
-    final_bytes = base64.b64decode(passwords_bytes)
-    final = final_bytes.decode("ascii")
-    # Add passwords to list
-    passwords.append(final)
-    # Close file
-    ff.close()
-    # Sleep for 2 seconds
-    time.sleep(2)
-# If file does not exist:
-except FileNotFoundError:
-    # Print error
-    print("No pass.txt found")
-    # Print that the file is being created
-    print("Creating pass.txt")
-    # Create file
-    ff = open(filename, "wt")
-    # Close it
-    ff.close()
-    # Open it in read mode.
-    ff = open(filename, "rt")
-    # Add passwords to list
-    passwords = ff.readlines()
-    # Sleep for 2 seconds
-    time.sleep(2)
-
-# Try to read the master password file
-try:
-    with open('src/masterpass.txt', 'rt') as f:
-        masterPassword = f.readline()
-# If file does not exist:
-except FileNotFoundError:
-    # Print error
-    print("Master password not found")
-    masterPassword = input("Enter your new master password: ")
-    with open('src/masterpass.txt', 'wt') as f:
-        f.write(masterPassword)
-
+startup()
 
 # Create a new password function
 def createPassword():
@@ -168,6 +171,7 @@ def createPassword():
         f.write(password_finished)
         f.write("\n")
         f.close()
+        passwords.append(newPassword)
     # If user wants to use a random password generator:
     elif userChoice == "2":
         # Generate password
@@ -545,6 +549,7 @@ def main():
             # Cleaner to read and write the options dict, but this can be a tiny but confusing to understand
         except KeyError:
             print('Invalid Command')
+            time.sleep(2)
             pass # Do nothing if input is not in command list,
                  # Since this is in a loop, it will ask for input again above
 
