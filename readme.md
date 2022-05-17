@@ -46,7 +46,7 @@ Refer to [LICENSE](LICENSE) for more info.
 
 ## Code Of Conduct 🤝
 
-This project follows a code of conduct. Please refer to [the appropiete file](code_of_conduct.md) for more info.
+This project follows a code of conduct. Please refer to [the appropriate file](code_of_conduct.md) for more info.
 
 ## Contributors 🧾
 
