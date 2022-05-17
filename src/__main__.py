@@ -522,6 +522,7 @@ def main():
         print("What do you want to do today?")
         # List options
         print(command_list)
+        # A dictionary to store the options
         options = {
             "C" : createPassword,
             "I" : importPassword,
@@ -534,16 +535,16 @@ def main():
             "IN" : info,
             "CM" : commands,
             "CL" : clear_terminal,
-            "Q" : lambda : ( print("Quitting, goodbye!"), sys.exit() )
-                  # Lambda because we want this to:
-                    # 1. Not print when this dict is created
-                    # 2. Be callable, print when called!
+            "Q" : lambda : ( sys.exit("Quitting, goodbye!") )
+                # Lambda because we want this to:
+                # 1. Not print when this dict is created
+                # 2. Be callable, print when called!
         }
         # Get user input
-        whatToDo = input("Enter your choice: ")
+        userChoice = input("Enter your choice: ")
 
         try:
-            options[whatToDo]() 
+            options[userChoice]() 
             # Get callable function from dict based on input and call
             # Cleaner to read and write the options dict, but this can be a tiny but confusing to understand
         except KeyError:
@@ -552,5 +553,6 @@ def main():
                  # Since this is in a loop, it will ask for input again above
 
 
+# If this is the main file, run main function
 if __name__ == "__main__":
     main()
