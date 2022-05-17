@@ -66,7 +66,7 @@ clear_terminal()
 # Declare figelt
 f = Figlet(font="slant")
 # Declare version
-version = "0.2.1"
+version = "0.2.2"
 # Start the password generator
 pwo = PasswordGenerator()
 # Filename to store passwords
@@ -395,7 +395,7 @@ def info():
     # Author
     print("Author: micziz\n")
     # License
-    print("License: LLV1\n")
+    print("License: Apache 2.0\n")
     # General info
     print(
         """
