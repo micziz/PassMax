@@ -14,7 +14,6 @@ import time, base64, os, sys
 # Import non standard modules
 from password_generator import PasswordGenerator # Password generator 
 from pyfiglet import Figlet # Pyfiglet
-from cryptography.fernet import Fernet
 
 # Actual start of the program
 # Command list
