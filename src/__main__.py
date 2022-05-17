@@ -16,21 +16,35 @@ from password_generator import PasswordGenerator # Password generator
 from pyfiglet import Figlet # Pyfiglet
 from cryptography.fernet import Fernet
 
-# Actual start
-
+# Actual start of the program
+# Command list
 command_list = "\n".join([
+                # Welcome to the command list
                 "Welcome to the commands section! Here you can find all commands you can use in PassMax",
+                # List of commands
+                # Create a new password
                 "[C]: [C]reate a new password. You can create a password by yourself, or you can use the auto-generator (With Paramaters)",
+                # List all passwords
                 "[L]: [L]ist all passwords. You can list all passwords you have saved",
+                # Edit a password
                 "[E]: [E]dit a password. You can edit a password you have saved",
+                # Delete a password
                 "[D]: [D]elete a password. You can delete a password you have saved",
+                # Delete all passwords
                 "[DA]: [D]elete [A]ll passwords. You can delete all passwords you have saved",
+                # Import passwords
                 "[I]: [I]mport passwords. You can import passwords from a file",
+                # Export a password
                 "[EX]: [EX]port a password. You can export a password to a file",
+                # Export all passwords
                 "[EXA]: [EX]port [A]ll passwords. You can export all passwords to a file",
+                # Info
                 "[IN]: [IN]fo. You can get info about PassMax",
+                # Command list
                 "[CM]: [C]o[M]mands. You can get info about all commands you can use in PassMax",
+                # Clear terminal
                 "[CL]: [CL]ear the console",
+                # Quit
                 "[Q]: [Q]uit PassMax",
                 "", # Blank line after command list
             ])
