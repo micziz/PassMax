@@ -1,14 +1,16 @@
 # PassMax! 🔑
 
 - [PassMax! 🔑](#passmax-)
-- [General info 📖](#general-info-)
-  - [What is PassMax? ❓](#what-is-passmax-)
-  - [Why should I use PassMax, and not something like 1Password? 🙋](#why-should-i-use-passmax-and-not-something-like-1password-)
-- [Installation 💿](#installation-)
-- [Contributing 😎](#contributing-)
-- [Changelog 📋](#changelog-)
-- [License 👨‍⚖️](#license-️)
-- [Contributors 🧾](#contributors-)
+  - [General info 📖](#general-info-)
+    - [What is PassMax? ❓](#what-is-passmax-)
+    - [Why should I use PassMax, and not something like 1Password? 🙋](#why-should-i-use-passmax-and-not-something-like-1password-)
+  - [Installation 💿](#installation-)
+  - [Documentation 📖](#documentation-)
+  - [Contributing 😎](#contributing-)
+  - [Changelog 📋](#changelog-)
+  - [License 👨‍⚖️](#license-️)
+  - [Code Of Conduct 🤝](#code-of-conduct-)
+  - [Contributors 🧾](#contributors-)
 
 ## General info 📖
 
@@ -23,6 +25,10 @@ PassMax is completely local. This means that unless a hacker has access to you c
 ## Installation 💿
 
 Currently, PassMax can only be installed from source. It's not hard! You can find install instructions in the wiki.
+
+## Documentation 📖
+
+Currently, the documentation is only offline. You can find it in the [docs directory](/docs/)
 
 ## Contributing 😎
 
