@@ -1,30 +1,26 @@
-# Installation
+# Installation 💿 
 
-## Windows
+## Windows 
 
-### Get the source code
+### Get the source code 💾
 
 First of all, we gotta get the source code.
 
 **Using Git**
 
-Install git by:
-
-- Using the GUI installer
-
-Then, clone the repository:
+Clone the repository:
 
 ```
 git clone https://github.com/micziz/PassMax.git
 ```
 
-Using the zip file
+**Using the zip file**
 
-Go to
+You can chose between:
 
-Stable: Go to releases, latest, and download the zip.
+**Stable**: Go to releases, latest, and download the zip.
 
-Latest: Click code, and download the zip.
+**Latest**: Click code, and download the zip. (This may not work do to dangling commits)
 
 **THE GIT REPO MAY HAVE SOME DANGLING AND NOT WORKING COMMITS!!! NOT RESPONSIBLE FOR PASSWORD LOSS/ROB**
 
@@ -36,15 +32,12 @@ Click the Yellow *Download Python3.10.4*
 
 Wait for it to finish and run the installer. **REMEMBER TO ADD PYTHON TO PATH**
 
-Wait for it to finish
-
 ### Install requirements
 
 ```
 cd PassMax
 pip install -r requirements.txt
 ```
-
 
 ### Running it
 
@@ -58,7 +51,6 @@ Open search and type windows terminal
 
 Then type:
 
-
 ```
 cd PassMax
 cd src
@@ -66,7 +58,6 @@ python main.py
 ```
 
 And enjoy!!!!
-
 
 ## MacOS
 
